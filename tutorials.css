@@ -1,5 +1,6 @@
 hr{
     width: 250px;
+    align-self: center;
 }
 #TutorialPage{
     display: flex;
