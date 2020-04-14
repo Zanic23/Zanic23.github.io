@@ -1,0 +1,60 @@
+hr{
+    width: 250px;
+}
+#TutorialPage{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.Section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 20px;
+    margin-top: 0px;
+}
+h2{
+    align-self: center;
+    margin: 10px;
+    color: white;
+    font-size: 32px;
+    font-family: 'Segoe UI';
+}
+#TutorialPage iframe{
+    flex-grow: 2;
+    overflow-y: scroll;
+}
+#TutorialList::-webkit-scrollbar{
+    display: none;
+}
+#TutorialList *{
+    cursor: pointer;
+}
+#TutorialList{
+    -ms-overflow-style: none;
+    margin: 0px;
+    height: calc(100vh - 82.8px);
+    overflow-y: scroll;
+    background-color:  #495e5f;;
+    align-items: flex-start;
+    font-family: 'Segoe UI';
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0px;
+    color : white;
+}
+#TutorialList li{
+    text-decoration: none;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+#TutorialList h3{
+    margin: 0px;
+    font-size: 28px;
+}
+#TutorialList a{
+    color: white;
+}

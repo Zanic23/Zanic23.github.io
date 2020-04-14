@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel= "stylesheet" href = "navbar.css">
+    <link rel= "stylesheet" href = "body.css">
+    <link rel= "stylesheet" href = "manipulating_data.css">
+    
+    <script src = "../jquery.min.js"></script>
+    <link rel= "stylesheet" href = "../styles/androidstudio.css">
+    <script src = "../highlight.pack.js"></script>
+    <script> hljs.initHighlightingOnLoad(); </script>
+</head>
+<body>
+    <h2>Manipulating Data</h2>
+    <h3 id = "ClassCollections">Class Collections</h3>
+    <p>
+        JBON is all about variables, and all it starts with a class collection. ClassCollections basically just a vector of GenericClasses, which are the class
+        templates you've seen in the examples. ClassCollections can either be made manually by pushing GenericClasses (To manually make a GenericClass, simply pass
+        its schema as a string to its constructor), or from a parsing method desribed in the Loading JBON tutorial. *Important Note*. When editing a class collection
+        from JBON file, make sure to store it in as refrence to a ClassCollection, or else the file cannot save any changes done to it.
+    </p>
+    <pre><code>
+jbon::File file("data.jbon");
+jbon::ClassCollection& classes = file.getClasses();
+//or
+jbon::ClassCollection classes = jbon::parse("...");
+//or manually create a ClassCollection
+jbon::ClassCollection classes;
+classes.push_back( {"monster{ pos, health, strength}"} );
+    </code></pre>
+    <p>
+        The ClassCollection contains all the parsed data. To query a specific class, use bracket notation with its class name. This will return a GenericClass, 
+        the classic JBON schema.
+    </p>
+    <pre><code>
+jbon::ClassCollection classes = jbon::parse("Dog{age, strength} Dog(5, 32)");
+jbon::GenericClass& dogClass = classes["Dog"];
+    </code></pre>
+    <h3 id = "GenericClasses">Generic Classes</h3>
+    <p>
+        GenericClasses are the heart of JBON and everything goes through them. GenericClass has two main utilites, that is to create more objects of 
+        its type, and query for its associated objects. In order to make an object of its a classes' type, either call constructNamedObject or constructObject.
+        When serializing the objects, one will resolve to Dog:Name(...), and the other Dog(). Names will be useful, as they can be used to query specific objects. 
+        For either of these functions, pass a valid JBON type and that's it. Both of these functions will return a refrence to the object it created.
+    </p>
+    <pre><code>
+jbon::GenericClass& dogClass = classes["Dog"];
+//adding new objects to the dog class
+dogClass.constructNamedObject("Scruffles", 4, 28);
+dogClass.constructObject(2, 11);
+//query all constructed objects associated with the dog class
+jbon::ObjectCollection& associatedObjects = dogClass.getObjects();
+    </code></pre>
+    <h3 id = "ObjectCollections">Object Collections</h3>
+    <p>
+        The other use of the GenericClass is of course to get its associated objects. This is sent as an ObjectCollection. ObjectCollections can query for a specific 
+        named object with bracket notation. The ObjectCollections also have defined iterators, so looping through all the objects is quite simple, and can also be used
+        to delete specific elements.
+    </p>
+    <pre><code>
+jbon::ObjectCollection& associatedObjects = dogClass.getObjects();
+//Can query a specific object
+associatedObjects["Scruffles"];
+//has defined iterators for looping through all objects
+for(auto& object : associatedObjects){
+    //...
+}
+auto it = associatedObjects.find("Scruffles");
+associatedObjects.erase(it);
+    </code></pre>
+    <h3 id = "ClassObjects">Class Objects</h3>
+    <p>
+        ClassObjects are are more restrictive conventional JBON object, because they have to follow the schema provided by the GenericClass. So, the ClassObjects can
+        only change what the values at their keys are; they cannot add more fields, or delete fields. There's two functions to change values at a key, set() and at().
+        set is used when you want to change value at a key, but to a different type. at is used when you simply want to change the value to another, of the same type.
+    </p>
+    <pre><code>
+        /*Scruffles Before
+            Dog:Scruffles(4,28)
+        */
+
+        jbon::ClassObject& scruffles = associatedObjects["Scruffles"];
+        scruffles.at&ltint&gt("age") = 20;
+        scruffles.set("strength", "This dog has no strength");
+
+        /*Scruffles After
+            Dog:Scruffles(20, "This dog has no strength")
+        */
+    </code></pre>
+</body>
+</html>

@@ -1,0 +1,20 @@
+* :not(code) {
+    color: white;
+}
+*{
+    font-family: 'Segoe UI';
+}
+h2 {
+    font-size: 32px;
+}
+h3 {
+    font-size: 24px;
+}
+code{
+    font-size: 18px;
+    margin: 0px;
+    border-radius: 5px;
+}
+p{
+    font-size: 18px;
+}

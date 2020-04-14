@@ -1,0 +1,45 @@
+
+.Text{
+    font-family: 'Segoe UI';
+    color: white;
+    font-size: 18px;
+}
+#description{
+    text-align: center;
+}
+
+#CodeExamples{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;   
+    align-items: stretch;
+}
+#CodeExamples p {
+    text-align: center;
+    margin: 15px;
+}
+#CodeExamples pre{
+    margin: 0px;
+}
+
+#CodeExamples pre code {
+    margin: 0px;
+    padding-bottom: 0px; 
+    padding-top: 0px;
+}
+
+
+#CodeExamples li {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #182c30;
+
+    margin-bottom: 20px;
+    background-image: url("Textbox.png");
+    background-size: 100% 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel= "stylesheet" type = "text/css" href = "jbon.css">
+    <link rel= "stylesheet" href = "navbar.css">
+    <link rel= "stylesheet" href = "body.css">
+    <!--adding text boxes for code-->
+    <script src = "jquery.min.js"></script>
+    <link rel= "stylesheet" href = "styles/androidstudio.css">
+    <script src = "highlight.pack.js"></script>
+    <script> hljs.initHighlightingOnLoad(); </script>
+</head>
+<body>
+    <!--task bar for quick navigation-->
+    <div id = "header">
+        <h1>JBON 2.0</h1>
+        <ul id = "navbar">
+            <a  href = "index.html" ><li>Home</li></a>
+            <a  href = "tutorials.html" ><li>Tutorials</li></a>
+            <a  href = "documentation.html" ><li>Documentation</li></a>
+            <a  href = "download.html" ><li>Download</li></a>
+            <a  href = "aboutus.html" ><li>About us</li></a>
+        </ul>
+    </div>
+    <div class = "WebsiteBody">
+        <!--description of jbon-->
+        <p class = "Text" id = "description">JBON provides a handful of helpful classes and functions needed inorder to develop quick parsing systems within your own code. 
+            This website includes plentiful documentation for how to use the library.
+        </p>
+
+        <!--Go over some examples on the home page for different things you can do with jbon-->
+        <ul id = "CodeExamples">
+            <li class = "Text">
+                <p>
+                Here is a basic example of a formatted JBON file. There's a class describing its keys/variables.<br> 
+                Following the class are its constructed objects. Keep in mind the class definition does not need to proceed the Objects.
+                </p>
+                <pre>
+                    <code class = "c++">
+Dog {
+    name,
+    age,
+    owner
+}
+Dog("Scruffles", 4, "Jonah")
+Dog("Lily", 4, "Izzy")
+                    </code>
+                </pre>
+            </li>
+            <li class = "Text">
+                <p>
+                One of JBON's great features, not found in many file parsing systems, is the ability to <br>define your own custom type.
+                While the basic types in JBON include: float, int, bool, and string,<br> JBON also provides its own standard custom types Object, Array, and Pair.
+                </p>
+                <pre>
+                    <code class = "c++">
+Party {
+    location,
+    couples
+}
+Character( {x = 4, y = 3}, [&ltJohn, Penny&gt, &ltMarry, Joe&gt])
+                    </code>
+                </pre>
+            </li>
+            <li class = "Text">
+                <p>
+                An important feature of JBON is that there is no requirment for the types 
+                <br>each object is constructed with. The following example is completely valid JBON.
+                </p>
+                <pre>
+                    <code class = "c++">
+Mouse {
+    position,
+    click
+}
+Mouse({x = 2, y = 3}, true)
+Mouse({x = 2, y = 3}, "Nope")
+Mouse({x = 2, y = 3}, 324)
+                    </code>
+                </pre>
+            </li>
+            <li class = "Text">
+                <p>
+                JBON objetcs are also capable of having names for querying. 
+                <br>Simply put a colon followed by the objects name infront of its class name.
+                </p>
+                <pre>
+                    <code class = "c++">
+Button {
+    position,
+    color,
+    text
+}
+Button:MainMenu( {x = 3, y = 10}, { r = 32, g = 34, b = 22}, "Play")
+                    </code>
+                </pre>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

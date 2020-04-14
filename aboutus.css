@@ -1,0 +1,13 @@
+p, pre, h2 {
+    font-family: 'Segoe UI';
+    font-size: 18px;
+    color: white;
+}
+h2{
+    font-size: 24px;
+}
+#license{
+    display: inline-block;
+    background-color: #495e5f;
+    padding: 10px;
+}

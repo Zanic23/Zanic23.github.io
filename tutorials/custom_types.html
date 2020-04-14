@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel= "stylesheet" href = "navbar.css">
+    <link rel= "stylesheet" href = "body.css">
+    <link rel= "stylesheet" href = "custom_types.css">
+    
+    <script src = "../jquery.min.js"></script>
+    <link rel= "stylesheet" href = "../styles/androidstudio.css">
+    <script src = "../highlight.pack.js"></script>
+    <script> hljs.initHighlightingOnLoad(); </script>
+</head>
+<body>
+    <h2>Custom Types</h2>
+    <p>
+        JBON's types include String, bool, int, float, and Custom Types. Custom Types can be defined by the tser, which you can learn how to do, but JBON provides a set
+        of these standard custom types, that includes Object, Pair, and Array. Most of the custom types have a static make function that you can call to easily make
+        objects of their type.
+    </p>
+    <h3 id = "Object">Object</h3>
+    <p>
+        A JBON object is just a set of key-value pairs. Unlike ClassObjects, key-value pairs can be added and taken off of an object. Other than that, the two are nearly 
+        identical, Object can use set and at just as a ClassObject would. 
+    </p>
+    <pre><code class = "c++">
+jbon::Object& object;
+//add fields to the object
+object.emplace("author", "Jerome");
+object.emplace("pages", 500);
+object.emplace("oops", "bad data");
+//erase oops value pair from object
+object.erase("oops");
+    </code></pre>
+    <h3 id = "Array">Array</h3>
+    <p>
+        An Array in JBON is like an array in any language, however, JBON arrays don't have to hold the same type for all of its elements. It could be composed of some
+        ints, and others be strings. JBON Arrays also have the iterators defined, so you can loop through each value. If you know the array only contains one type,
+        it also possible to get a vector containing the values, however these are in affect, only readable, as they dont refrence anything.
+    </p>
+    <pre><code class = "c++">
+jbon::Array array = jbon::Array::make("hello", 3, 4, 2.0, true, false);
+//arrays can also contain any custom value
+array.push_back(jbon::Array::make(2,3));
+
+std::vector<int> values = array.getVector&ltint&gt(); //will result in an error
+
+for(auto& value : array){
+    std::cout &lt&lt value &lt&lt std::endl;
+}
+    </code></pre>
+    <h3 id = "Pair">Pair</h3>
+    <p>
+        Pairs in jbon are just a key-value pair. The value or key can be queryed using the template functions value and key, and if you want to change the type, use 
+        setValue or setKey.
+    </p>
+    <pre><code class = "c++">
+jbon::Pair pair = jbon::Pair::make("Jimmy", 10);
+pair.value<int> = 200;
+pair.setKey("Mother");
+    </code></pre>
+    <h3 id = "MakingYourOwn">Making Your Own</h3>
+    <p>
+        One of JBON's coolest features is its custom type. We've talked abot the standarad ones that come with JBON, but lets talk about how you can make your own.
+        To begin, simply make your new class, and make sure its not templated, and inherit from public ValueTypeContract&lt'Your Custom Type'&gt. If you tried to compile
+        this you might've noticied the errors given for the class. That's because theres some functions you need to implement. There are four, 3 of which are static and
+        one normal. You need to implement a static function called <code>create()</code> that takes a string (which you'll be parsing) and returns a newly 
+        allocated version of your class. 
+    </p>
+    <pre><code class = "c++">
+myCustomType * create(std::string str){
+    //its not a bad idea to define a constructor that parses the string
+    return new myCustomType(str);
+}
+    </code></pre>        
+    <p>    
+        You'll also need to implement a function that returns a bool and takes a string called <code>isSameType()</code> that says if 
+        a certain string is your classe's type. The last static function to implement returns a pair of chars and is called <code>getSurroundingDelimeters()</code>.
+        The pair of chars tells jbon, as its parsing, not to pay attention to anything inbetween those delimeters. For example, Array returns {'[', ']'}, Pair returns 
+        {'&lt','&gt'}, and Object returns {'{','}'}. Although if your type doesn't use any commas or imporant delimeters, you can return an empty pair.
+    </p>
+    <pre><code class = "c++">
+std::pair&ltchar, char&gt * GetSurroundingDelimeters(){
+    return std::make_pair('|','|');
+}
+    </code></pre>   
+    <p>    
+        The fourth function needed is not static and is called <code>serialize()</code>. <code>serialize()</code> turns your
+        object into a string. Also, dont forget to add you custom object to the jbon namespace!
+    </p>
+    <pre><code class = "c++">
+//final product
+namespace jbon{
+    class myCustomType
+        : public ValueTypeContract&ltmyCustomType&gt {
+        public:
+            static myCustomType * create(std::string);
+            static bool isSameType(std::string);
+            static std::pair&ltchar, char&gt getSurroundingDelimeters();
+            std::string serialize();
+    };
+}
+    </code></pre>
+    <p>
+        JBON has a variety of tools to help you make your custom type. The most important you have is the Value class. If you've ever looped through a JBON array 
+        you'll have noticied it contains a vector of Values. The Value class is the base unit for everything in JBON. A value can parse any string, be made with 
+        any type, be serialized, and you retrieve its type. Also, once you finish making your type, any of the mentioned functions will be compatible with your class.
+    </p>
+    <pre><code class = "c++">
+//takes any type and will make a Value with it
+jbon::Value helloValue = jbon::Value::make("hello");
+//jbon values can also be made with text
+jbon::Value value = jbon::value::parse("[2,3,4]");
+//serialize a value
+std::string serializedText = value.serialize();
+//access the type
+value.get&ltjbon::Array&gt().push_back(5);
+    </code></pre>
+    <p>
+        The other major tool JBON provides are the string functions. The most important are displayed below. jbonSplit will split the entire string by the delimeter,
+        but will not split by any delimeters within jbon objects. This is done with the pairs provided by getSurroundingDelimeters(). jbonFileSplit will take a string 
+        and split it into GenericClasses, and ClassObjects.
+    </p>
+    <pre><code class = "c++">
+void removeSpaces(std::string& str);
+void indent(std::string& str, int spaces = 0);
+std::vector&ltstd::string&gt split(std::string str, char delim = '\n');
+//will split by a delimeter, but will not look for delimeters within any pair of chars
+std::vector&ltstd::string&gt split(std::string str, std::vector&ltstd::pair&ltchar, char&gt&gt exclude, char delim = '\n');
+//any currently used delimeters will be taken into account
+std::vector&ltstd::string&gt jbonSplit(std::string str, char delims = ',');
+void jbonFileSplit(std::vector&ltstd::string&gt& objects, const std::string& str);
+    </code></pre>
+    <p>
+        If you still dont like the tools provided by Value, theres also a normal parse function called parseString that takes the type you expect from a specific string
+    </p>
+    <pre><code class = "c++">
+int value = parseString&ltint&gt("5");
+    </code></pre>
+</body>
+</html>

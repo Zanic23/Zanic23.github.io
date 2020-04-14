@@ -1,0 +1,10 @@
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+.Section h3 {
+    background-color: red;
+    color: white;
+    margin: 200px;
+}
