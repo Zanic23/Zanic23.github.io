@@ -7,13 +7,15 @@
 }
 /*the h1 heading is the jbon title*/
 h1 {
-    text-decoration: none;
     margin: 15px;
     margin-left: 100px;
     margin-right: 0px;
     font-size: 32px;
     color: white;
     font-family: 'Segoe UI';
+}
+#header a{
+    text-decoration: none;
 }
 #navbar {
     flex-grow: 4;

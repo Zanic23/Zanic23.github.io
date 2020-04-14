@@ -17,6 +17,7 @@
 }
 #CodeExamples p {
     text-align: center;
+    align-self: center;
     margin: 15px;
 }
 #CodeExamples pre{
