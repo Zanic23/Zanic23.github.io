@@ -14,6 +14,10 @@ h1 {
     color: white;
     font-family: 'Segoe UI';
 }
+
+#header a{
+    text-decoration: underline;
+}
 #header a{
     text-decoration: none;
 }
