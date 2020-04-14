@@ -17,6 +17,11 @@
     flex-direction: row;
     align-items: stretch;
 }
+
+#Documentation iframe{
+    flex-grow: 2;
+    overflow-y: scroll;
+}
 #RefrenceList{
     -ms-overflow-style: none;
     margin: 0px;
