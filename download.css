@@ -14,7 +14,9 @@
 hr{
     width: 340px;
 }
-#DownloadList > p{
+#DownloadList  p {
+    color: white;
+    margin-bottom: 0px;
     cursor: pointer;
     font-size: 28px;
     
