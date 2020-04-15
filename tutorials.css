@@ -1,3 +1,9 @@
+#StretchTitleBar{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
 hr{
     width: 250px;
     align-self: center;
@@ -24,10 +30,8 @@ h2{
     font-family: 'Segoe UI';
 }
 #TutorialPage iframe{
-    width: calc(100vw - 306.63px);
     flex-grow: 2;
     overflow-y: scroll;
-    overflow-x: scroll;
 }
 
 #TutorialList::-webkit-scrollbar{
