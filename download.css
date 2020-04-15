@@ -4,23 +4,35 @@
     flex-direction: column;
     align-items: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+    
 }
-
+.row{
+    display: flex;
+    flex-direction: row;
+    
+    margin-top: 20px;
+}
 #DownloadList > h2{
+    margin-top: 10px;
     font-size: 48px;
     margin-bottom: 20px;
 }
 hr{
     width: 340px;
 }
-#DownloadList  p {
+#DownloadList  p 
+{
+    font-size: 24px;
+    margin:10px;
+}
+#DownloadList  a 
+{
+    align-self: center;
     color: white;
-    margin-bottom: 0px;
     cursor: pointer;
-    font-size: 28px;
+    font-size: 18px;
     
     background-color: #495e5f;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
 }
