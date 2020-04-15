@@ -74,9 +74,9 @@ myCustomType * create(std::string str){
     </code></pre>        
     <p>    
         You'll also need to implement a function that returns a bool and takes a string called <code>isSameType()</code> that says if 
-        a certain string is your classes's type. The last static function to implement returns a pair of chars and is called <code>getSurroundingDelimeters()</code>.
-        The pair of chars tells JBON, as its parsing, not to pay attention to anything inbetween those delimeters. For example, Array returns {'[', ']'}, Pair returns 
-        {'&lt','&gt'}, and Object returns {'{','}'}. Although if your type doesn't use any commas or imporant delimeters, you can return an empty pair.
+        a certain string is your class's type. The last static function to implement returns a pair of chars and is called <code>getSurroundingDelimeters()</code>.
+        The pair of chars tells JBON, as it's parsing, not to pay attention to anything between those delimeters. For example, Array returns {'[', ']'}, Pair returns 
+        {'&lt','&gt'}, and Object returns {'{','}'}. Although, if your type doesn't use any commas or important delimeters, you can return an empty pair.
     </p>
     <pre><code class = "c++">
 std::pair&ltchar, char&gt * GetSurroundingDelimeters(){
@@ -85,7 +85,7 @@ std::pair&ltchar, char&gt * GetSurroundingDelimeters(){
     </code></pre>   
     <p>    
         The fourth function needed is not static and is called <code>serialize()</code>. <code>serialize()</code> turns your
-        object into a string. Also, dont forget to add you custom object to the jbon namespace!
+        object into a string. Also, don't forget to add your custom object to the jbon namespace!
     </p>
     <pre><code class = "c++">
 //final product
@@ -102,7 +102,7 @@ namespace jbon{
     </code></pre>
     <p>
         JBON has a variety of tools to help you make your custom type. The most important you have is the Value class. If you've ever looped through a JBON array 
-        you'll have noticied it contains a vector of Values. The Value class is the base unit for everything in JBON. A value can parse any string, be made with 
+        you'll have noticed it contains a vector of Values. The Value class is the base unit for everything in JBON. A value can parse any string, be made with 
         any type, be serialized, and you retrieve its type. Also, once you finish making your type, any of the mentioned functions will be compatible with your class.
     </p>
     <pre><code class = "c++">
@@ -117,8 +117,8 @@ value.get&ltjbon::Array&gt().push_back(5);
     </code></pre>
     <p>
         The other major tool JBON provides are the string functions. The most important are displayed below. jbonSplit will split the entire string by the delimeter,
-        but will not split by any delimeters within jbon objects. This is done with the pairs provided by getSurroundingDelimeters(). jbonFileSplit will take a string 
-        and split it into GenericClasses, and ClassObjects.
+        but will not split by any delimeters within JBON objects. This is done with the pairs provided by getSurroundingDelimeters(). jbonFileSplit will take a string 
+        and split it into GenericClasses and ClassObjects.
     </p>
     <pre><code class = "c++">
 void removeSpaces(std::string& str);
@@ -131,7 +131,7 @@ std::vector&ltstd::string&gt jbonSplit(std::string str, char delims = ',');
 void jbonFileSplit(std::vector&ltstd::string&gt& objects, const std::string& str);
     </code></pre>
     <p>
-        If you still dont like the tools provided by Value, theres also a normal parse function called parseString that takes the type you expect from a specific string
+        If you still don't like the tools provided by Value, theres also a normal parse function called parseString that takes the type you expect from a specific string.
     </p>
     <pre><code class = "c++">
 int value = parseString&ltint&gt("5");
