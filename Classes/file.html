@@ -6,20 +6,36 @@
 <body>
     <h2>File</h2>
     <hr>
-    <p>Description</p>
+    <p>File is the primary and suggested way to extract and parse jbon files.</p>
+    <h4>Constructors</h4>
+    <hr>
+    <div class = "Method">
+        <h6>File(std::string filepath);</h6>
+        <p>Will create a file object, and will parse through the text as the specified filepath.</p>
+    </div>
+    <div class = "Method">
+        <h6>File();</h6>
+        <p>Default Constructor.</p>
+    </div>
     <h4>Methods</h4>
     <hr>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>ClassCollection& getClasses();</h6>
+        <p>This will return a refrence to the classes and objects parsed from the file in the form of a ClassCollection.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>void include(std::string filepath);</h6>
+        <p>Including a filepath is slightly different than loading a file. Including it will stictly parse the classes in that file. This is useful if you find yourself constantly
+            rewriting the same same class template. Unlike load, which can only be used once per fileObject, you include as many files as you want.
+        </p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>void load(std::string filepath);</h6>
+        <p>This will will load and parse the contents at the designated filepath.</p>
+    </div>
+    <div class = "Method">
+        <h6>void save();</h6>
+        <p>Any changes done to the ClassCollection (that can be refrenced with ClassCollection) will be saved in the loaded filepath.</p>
     </div>
 </body>
 </html>

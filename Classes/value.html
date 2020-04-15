@@ -6,20 +6,47 @@
 <body>
     <h2>Value</h2>
     <hr>
-    <p>Description</p>
+    <p>Value is the base unit for JBON, and represents all possible valid JBON types.</p>
+    <h4>Constructors</h4>
+    <hr>
+    <div class = "Method">
+        <h6>Value()</h6>
+        <p>Default Constructor</p>
+    </div>
     <h4>Methods</h4>
     <hr>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>static Value parse(std::string asString);</h6>
+        <p>Will parse the string into a valid jbon type, and if it cannot will store an int initialized with 0.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>std::string serialize() const</h6>
+        <p>This will return the instantiated value as a string.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>
+            template&lttypename T&gt
+            T& get();
+        </h6>
+        <p>This will return a refrence to the type specified by the template.</p>
+    </div>
+    <div class = "Method">
+        <h6>
+            template&lttypename T&gt
+            static Value make(T value);
+        </h6>
+        <p>As long as the type is a valid JBON type, the value will be created with the value.</p>
+    </div>
+    <div class = "Method">
+        <h6>
+            template&lttypename T&gt
+            bool holds();
+        </h6>
+        <p>If the Value is currently holding the type specified by the template, this will return true, otherwise false.</p>
+    </div>
+    <div class = "Method">
+        <h6>value_t& variant()</h6>
+        <p>Willl return a refrence to the raw std::variant. The actual std::variant holds int, bool, float, std::string, and ValueType*.</p>
     </div>
 </body>
 </html>

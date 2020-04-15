@@ -6,20 +6,81 @@
 <body>
     <h2>Array</h2>
     <hr>
-    <p>Description</p>
+    <p>
+        A JBON array is just like an array from any other language. JBON arrays do differ, however, in fact that they can hold multiple different
+        types at once.
+    </p>
+    <h4>Constructors</h4>
+    <hr>
+    <div class = "Method">
+        <h6>Array();</h6>
+        <p>Default Constructor</p>
+    </div>
+    <div class = "Method">
+        <h6>Array(std::string str);</h6>
+        <p>This will parse the string and construct the array appropriately.</p>
+    </div>
     <h4>Methods</h4>
     <hr>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>
+            template&lttypename T&gt<br>
+            T& at(const int index);
+        </h6>
+        <p>This will return a refrence of the type passed, at the index passed.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>
+            template&lttypename T&gt<br>
+            std::vector&ltT&gt getVector();
+        </h6>
+        <p>If all the values in the array of type T, this function will return a vector of type T.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>
+            template&lttypename T&gt<br>
+            void push_back(const T& value);
+        </h6>
+        <p>Pass any valid JBON type, and it will add it to the JBON array.</p>
+    </div>
+    <div class = "Method">
+        <h6>
+            template&lttypename...args&gt<br>
+            static Array make(args...values);
+        </h6>
+        <p>Pass as many valid JBON type, and it will add this function will create an array with those values.</p>
+    </div>
+    <div class = "Method">
+        <h6>std::string serialize() const;</h6>
+        <p>This will return a serialized version of the instantiated array.</p>
+    </div>
+    <div class = "Method">
+        <h6>iterator begin();</h6>
+        <p>Will return a begin iterator for the array.</p>
+    </div>
+    <div class = "Method">
+        <h6>iterator end();</h6>
+        <p>Will return an end iterator for the array.</p>
+    </div>
+    <div class = "Method">
+        <h6>const_iterator begin() const;</h6>
+        <p>Will return a const begin iterator for the array.</p>
+    </div>
+    <div class = "Method">
+        <h6>const_iterator end() const;</h6>
+        <p>Will return a const end iterator for the array.</p>
+    </div>
+    <div class = "Method">
+        <h6>void erase(iterator it);</h6>
+        <p>Will delete the element from the array at the specified index.</p>
+    </div>
+    <div class = "Method">
+        <h6>int size();</h6>
+        <p>Will return the size of the array.</p>
+    </div>
+    <div class = "Method">
+        <h6>bool empty();</h6>
+        <p>If the array has no elements, this will return true, otherwise false.</p>
     </div>
 </body>
 </html>

@@ -6,20 +6,60 @@
 <body>
     <h2>Object</h2>
     <hr>
-    <p>Description</p>
+    <p>A JBON Object is simply a set of key-value pairs, where the the key is always a string, and the value can be any valid JBON type.</p>
+    <h4>Constructors</h4>
+    <hr>
+    <div class = "Method">
+        <h6>Object(;</h6>
+        <p>Default Constructor</p>
+    </div>
+    <div class = "Method">
+        <h6>Object(std::string str);</h6>
+        <p>This will parse the string and create the appropriate object from it.</p>
+    </div>
     <h4>Methods</h4>
     <hr>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>std::string serialize(); const</h6>
+        <p>This will return a serialized version of the object.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>
+            template&lttypename T&gt
+            void emplace(std::string key, T value);
+        </h6>
+        <p>This will add a key value pair to the object, so long as T is a valid JBON type.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>
+            template&lttypename T&gt
+            T& at(std::string key);
+        </h6>
+        <p>This will return a refrence to the type specified at the key passed.</p>
+    </div>
+    <div class = "Method">
+        <h6>
+            template&lttypename T&gt
+            void set(std::string key, T value);
+        </h6>
+        <p>This will change the value at the specified key to the new value passed.</p>
+    </div>
+
+    <div class = "Method">
+        <h6>void erase(std::string key);</h6>
+        <p>This will delete the key value pair whose key matches with the one passed.</p>
+    </div>
+    <div class = "Method">
+        <h6>bool contains(std::string key);</h6>
+        <p>Will return true if the object contains the key, false if not.</p>
+    </div>
+    <div class = "Method">
+        <h6>int size();</h6>
+        <p>This returns the amount of key-value pairs held by the object.</p>
+    </div>
+    <div class = "Method">
+        <h6>friend std::ostream& operator&lt&lt(std::ostream& stream, const Object& object);</h6>
+        <p>This allows Objects to be passed in streams such as std::cout.</p>
     </div>
 </body>
 </html>

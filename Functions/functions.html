@@ -9,39 +9,46 @@
     <hr>
     <div class = "Method" id = "parse">
         <h6>jbon::ClassCollection parse(std::string text);</h6>
-        <p>Description...</p>
+        <p>This is function will take any valid JBON text and parse through it, returning a collection of classes.</p>
     </div>
     <div class = "Method" id = "parse_string">
-        <h6>std::string parseString&ltT&gt(std::string str);</h6>
-        <p>Description...</p>
+        <h6>T parseString&ltT&gt(std::string str);</h6>
+        <p>This template function will convert the passed string into the type passed. Any basic JBON type, including custom types, are valid.</p>
     </div>
     <div class = "Method" id = "remove_spaces">
         <h6>void removeSpaces(std::string& str);</h6>
-        <p>Description...</p>
+        <p>Will remove any whitespace from a string. This includes tabs, spaces, and newlines. This is primarily used when parsing, as whitespace does not affect JBON.</p>
     </div>
     <div class = "Method" id = "split">
-        <h6>std::vecto&ltstd::string&gt split(std::string str, char delim = ',');</h6>
-        <p>Description...</p>
+        <h6>std::vector&ltstd::string&gt split(std::string str, char delim = ',');</h6>
+        <p>This function will split the passed string by the supplied delimeter (comma be default), and return the regexed string.</p>
     </div>
     <div class = "Method">
-        <h6>std::vecto&ltstd::string&gt split(std::string str, std::vectpr&ltstd::pair&ltchar, char&gt&gt, char delim = ',');</h6>
-        <p>Description...</p>
+        <h6>std::vector&ltstd::string&gt split(std::string str, std::vector&ltstd::pair&ltchar, char&gt&gt, char delim = ',');</h6>
+        <p>This function does the exact same as the other split function, however, it will not look for delimeters inside of any char pair passed. For example, the string 
+            "Hello, my favorite subjects are [Math, Science, History]" passed with pair {'[',']'} will return "Hello" and "  my favorite subjects are [Math, Science, History]".
+            You are also able to pass exclusion pairs that are the same like {'\"','\"'}.
+        </p>
     </div>
     <div class = "Method" id = "jbon_split">
         <h6>std::vector&ltstd::string&gt jbonSplit(const std::string& str, char delim = ',');</h6>
-        <p>Description...</p>
+        <p>This function will split a string by the supplied delimeter, and it will ignore any JBON exclusion symbols. For example, it wouldnt do anything to the array "[2,3]",
+            as the only comma is inside of a bracket.
+        </p>
     </div>
     <div class = "Method" id = "jbon_file_split">
         <h6>void jbonFileSplit(std::vector&ltstd::string&gt& objects, const std::string& str);</h6>
-        <p>Description...</p>
+        <p>This function will any valid JBON text and split it into classes and class objects.</p>
     </div>
     <div class = "Method" id = "indent">
         <h6>void indent(std::string& str, int spaces = 0);</h6>
-        <p>Description...</p>
+        <p>indent will add a tab before at the begining of each new line.</p>
     </div>
     <div class = "Method" id = "is_type">
         <h6>bool is(Type)(std::string str);</h6>
-        <p>Description...</p>
+        <p>There are four valid isType functions. They are, isInt(), isFloat(), isString(), and isBool(). If the passed string is the respective type, it will return true, 
+            otherwise false.
+        </p>
     </div>
 
 </body>
