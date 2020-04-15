@@ -13,7 +13,7 @@
 <body>
     <h2>Custom Types</h2>
     <p>
-        JBON's types include String, bool, int, float, and Custom Types. Custom Types can be defined by the tser, which you can learn how to do, but JBON provides a set
+        JBON's types include string, bool, int, float, and Custom Types. Custom Types can be defined by the user, which you can learn how to do, but JBON provides a set
         of these standard custom types, that includes Object, Pair, and Array. Most of the custom types have a static make function that you can call to easily make
         objects of their type.
     </p>
@@ -35,7 +35,7 @@ object.erase("oops");
     <p>
         An Array in JBON is like an array in any language, however, JBON arrays don't have to hold the same type for all of its elements. It could be composed of some
         ints, and others be strings. JBON Arrays also have the iterators defined, so you can loop through each value. If you know the array only contains one type,
-        it also possible to get a vector containing the values, however these are in affect, only readable, as they dont refrence anything.
+        it's also possible to get a vector containing the values, however these are in affect, only readable, as they don't reference anything.
     </p>
     <pre><code class = "c++">
 jbon::Array array = jbon::Array::make("hello", 3, 4, 2.0, true, false);
@@ -50,7 +50,7 @@ for(auto& value : array){
     </code></pre>
     <h3 id = "Pair">Pair</h3>
     <p>
-        Pairs in JBON are just a key-value pair. The value or key can be queryed using the template functions value and key, and if you want to change the type, use 
+        Pairs in JBON are just a key-value pair. The value or key can be queryed using the template functions value and key. If you want to change the type, use 
         setValue or setKey.
     </p>
     <pre><code class = "c++">
@@ -60,9 +60,9 @@ pair.setKey("Mother");
     </code></pre>
     <h3 id = "MakingYourOwn">Making Your Own</h3>
     <p>
-        One of JBON's coolest features is its custom type. We've talked abot the standard ones that come with JBON, but lets talk about how you can make your own.
-        To begin, simply make your new class, and make sure its not templated, and inherit from public ValueTypeContract&lt'Your Custom Type'&gt. If you tried to compile
-        this you might've noticied the errors given for the class. That's because theres some functions you need to implement. There are four, 3 of which are static and
+        One of JBON's coolest features is its custom type. We've talked about the standard ones that come with JBON, but let's talk about how you can make your own.
+        To begin, simply make your new class, and make sure it's not templated, and inherit from public ValueTypeContract&lt'Your Custom Type'&gt. If you've tried to compile
+        this you might've noticed the errors given for the class. That's because there are some functions you need to implement. There are four, three of which are static and
         one normal. You need to implement a static function called <code>create()</code> that takes a string (which you'll be parsing) and returns a newly 
         allocated version of your class. 
     </p>
