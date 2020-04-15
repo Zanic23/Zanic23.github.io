@@ -4,22 +4,53 @@
     <link rel = "stylesheet" href = "classes.css">
 </head>
 <body>
-    <h2>ObjectContainer</h2>
+    <h2>ObjectCollection</h2>
     <hr>
-    <p>Description</p>
+    <p>ObjectCollections are collections of Constructed JBON objects. ClassObjects are made strictly from class schemas,
+        and so the only way to get an ObjectCollection is through a GenericClass.
+    </p>
     <h4>Methods</h4>
     <hr>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>ClassObject& operator[](std::string name);</h6>
+        <p>
+            This will return a refrence to an object with the specified name. If none can be found, this will throw an error.
+        </p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>iterator begin();</h6>
+        <p>Will return a begin iterator for the collection.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>iterator end();</h6>
+        <p>Will return an end iterator for the collection.</p>
+    </div>
+    <div class = "Method">
+        <h6>const_iterator begin() const;</h6>
+        <p>Will return a const begin iterator for the collection.</p>
+    </div>
+    <div class = "Method">
+        <h6>const_iterator end() const;</h6>
+        <p>Will return a const end iterator for the collection.</p>
+    </div>
+    <div class = "Method">
+        <h6>iterator find(std::string name);</h6>
+        <p>
+            This will return an iterator to an object with the specified name. If none can be found, this will return an 
+            end iterator.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>void erase(iterator it);</h6>
+        <p>Will delete the element from the array at the specified iterator.</p>
+    </div>
+    <div class = "Method">
+        <h6>int size();</h6>
+        <p>Will return the size of the collection.</p>
+    </div>
+    <div class = "Method">
+        <h6>bool empty();</h6>
+        <p>If the collection has no elements, this will return true, otherwise false.</p>
     </div>
 </body>
 </html>

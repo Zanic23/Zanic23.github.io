@@ -6,20 +6,82 @@
 <body>
     <h2>GenericClass</h2>
     <hr>
-    <p>Description</p>
+    <p>A GenericClass are the templates, or classes of JBON. They provide a schema which all of its objects must follow.</p>
+    <p>Constructors</p>
+    <hr>
+    <div class = "Method">
+        <h6>GenericClass();</h6>
+        <p>Default Constructor</p>
+    </div>
+    <div class = "Method">
+        <h6>GenericClass(std::string schema);</h6>
+        <p>This will parse the class schema and create the appropriate GenericClass.</p>
+    </div>
     <h4>Methods</h4>
     <hr>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>ObjectCollection& getObjects();</h6>
+        <p>
+            This will return a refrence to all constructed objects associated with this class. Any changes to the refrence will
+            be remembered by the class, so remember to save the return value in a refrence. This is the only way for a user 
+            to get an ObjectCollection in current JBON.
+        </p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>std::string serialize() const;</h6>
+        <p>This will return a serialized version of the GenericClass. This string will contain the class schema, as well as all of
+            its serialized list of associated objects.
+        </p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>std::string name() const;</h6>
+        <p>This will return the name of the class.</p>
+    </div>
+    <div class = "Method">
+        <h6>friend std::ostream& operator &lt&lt (std::ostream& stream, GenericClass& genericClass);</h6>
+        <p>This allows the GenericClass to be passed to a standard stream.</p>
+    </div>
+
+    <div class = "Method">
+        <h6>
+            template&lttypename...args&gt
+            ClassObject& constructObject(args...list);
+        </h6>
+        <p>
+            Add an associated object to the respective class, initialized with the passed variable list. 
+            This will also return a refrence to the object added to the ObjectCollection.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>
+            template&lttypename...args&gt
+            ClassObject& constructNamedObject(std::string name, args...list);
+        </h6>
+        <p>
+            Add an associated object, with a name, to the respective class, initialized with the passed variable list. 
+            This will also return a refrence to the object added to the ObjectCollection.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>ClassObject& constructObject(std::vector&ltValue&gt values)</h6>
+        <p>
+            Add an associated object to the respective class, initialized with the passed Values. This will also return
+            a refrence to the object added to the ObjectCollection.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>ClassObject& constructNamedObject(std::string name, std::vector&ltValue&gt values)</h6>
+        <p>
+            Add an associated object, with a name, to the respective class, initialized with the passed variables. 
+            This will also return a refrence to the object added to the ObjectCollection.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>ClassObject& constructObject(std::string data);</h6>
+        <p>
+            Add an associated object to the respective class, initialized with the string that will be parsed. 
+            This will also return a refrence to the object added to the ObjectCollection.
+        </p>
     </div>
 </body>
 </html>

@@ -38,7 +38,7 @@ h2{
 #TutorialList{
     -ms-overflow-style: none;
     margin: 0px;
-    height: calc(100vh - 82.8px);
+    height: calc(100vh - 85.28px);
     overflow-y: scroll;
     background-color:  #495e5f;;
     align-items: flex-start;
@@ -51,7 +51,7 @@ h2{
 }
 #TutorialList li{
     text-decoration: none;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     font-size: 24px;
 }
 #TutorialList h3{
