@@ -60,7 +60,7 @@ pair.setKey("Mother");
     </code></pre>
     <h3 id = "MakingYourOwn">Making Your Own</h3>
     <p>
-        One of JBON's coolest features is its custom type. We've talked abot the standarad ones that come with JBON, but lets talk about how you can make your own.
+        One of JBON's coolest features is its custom type. We've talked abot the standard ones that come with JBON, but lets talk about how you can make your own.
         To begin, simply make your new class, and make sure its not templated, and inherit from public ValueTypeContract&lt'Your Custom Type'&gt. If you tried to compile
         this you might've noticied the errors given for the class. That's because theres some functions you need to implement. There are four, 3 of which are static and
         one normal. You need to implement a static function called <code>create()</code> that takes a string (which you'll be parsing) and returns a newly 
@@ -74,7 +74,7 @@ myCustomType * create(std::string str){
     </code></pre>        
     <p>    
         You'll also need to implement a function that returns a bool and takes a string called <code>isSameType()</code> that says if 
-        a certain string is your classe's type. The last static function to implement returns a pair of chars and is called <code>getSurroundingDelimeters()</code>.
+        a certain string is your classes's type. The last static function to implement returns a pair of chars and is called <code>getSurroundingDelimeters()</code>.
         The pair of chars tells JBON, as its parsing, not to pay attention to anything inbetween those delimeters. For example, Array returns {'[', ']'}, Pair returns 
         {'&lt','&gt'}, and Object returns {'{','}'}. Although if your type doesn't use any commas or imporant delimeters, you can return an empty pair.
     </p>

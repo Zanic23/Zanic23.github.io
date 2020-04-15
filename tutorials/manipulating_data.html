@@ -14,10 +14,10 @@
     <h2>Manipulating Data</h2>
     <h3 id = "ClassCollections">Class Collections</h3>
     <p>
-        JBON is all about variables, and all it starts with a class collection. ClassCollections basically just a vector of GenericClasses, which are the class
-        templates you've seen in the examples. ClassCollections can either be made manually by pushing GenericClasses (To manually make a GenericClass, simply pass
+        JBON is all about variables, and all it starts with a class collection. ClassCollections are basically just vectors of GenericClasses, which are the class
+        templates you've seen in the examples. ClassCollections can either be made manually by pushing GenericClasses (to manually make a GenericClass, simply pass
         its schema as a string to its constructor), or from a parsing method desribed in the Loading JBON tutorial. *Important Note*. When editing a class collection
-        from JBON file, make sure to store it in as refrence to a ClassCollection, or else the file cannot save any changes done to it.
+        from JBON file, make sure to store it in as reference to a ClassCollection, or else the file cannot save any changes done to it.
     </p>
     <pre><code>
 jbon::File file("data.jbon");
@@ -38,10 +38,10 @@ jbon::GenericClass& dogClass = classes["Dog"];
     </code></pre>
     <h3 id = "GenericClasses">Generic Classes</h3>
     <p>
-        GenericClasses are the heart of JBON and everything goes through them. GenericClass has two main utilites, that is to create more objects of 
-        its type, and query for its associated objects. In order to make an object of its a classes' type, either call constructNamedObject or constructObject.
+        GenericClasses are the heart of JBON and everything goes through them. GenericClass has two main utilities, is to create more objects of 
+        its type and query for its associated objects. In order to make an object of its a classes' type, either call constructNamedObject or constructObject.
         When serializing the objects, one will resolve to Dog:Name(...), and the other Dog(). Names will be useful, as they can be used to query specific objects. 
-        For either of these functions, pass a valid JBON type and that's it. Both of these functions will return a refrence to the object it created.
+        For either of these functions, simply pass a valid JBON type. Both of these functions will return a reference to the object it created.
     </p>
     <pre><code>
 jbon::GenericClass& dogClass = classes["Dog"];
@@ -53,7 +53,7 @@ jbon::ObjectCollection& associatedObjects = dogClass.getObjects();
     </code></pre>
     <h3 id = "ObjectCollections">Object Collections</h3>
     <p>
-        The other use of the GenericClass is of course to get its associated objects. This is sent as an ObjectCollection. ObjectCollections can query for a specific 
+        The other use of the GenericClass is, of course, to get its associated objects. This is sent as an ObjectCollection. ObjectCollections can query for a specific 
         named object with bracket notation. The ObjectCollections also have defined iterators, so looping through all the objects is quite simple, and can also be used
         to delete specific elements.
     </p>
@@ -70,9 +70,9 @@ associatedObjects.erase(it);
     </code></pre>
     <h3 id = "ClassObjects">Class Objects</h3>
     <p>
-        ClassObjects are are more restrictive conventional JBON object, because they have to follow the schema provided by the GenericClass. So, the ClassObjects can
-        only change what the values at their keys are; they cannot add more fields, or delete fields. There's two functions to change values at a key, set() and at().
-        set is used when you want to change value at a key, but to a different type. at is used when you simply want to change the value to another, of the same type.
+        ClassObjects are more restrictive than conventional JBON objects, because they have to follow the schema provided by the GenericClass. So, the ClassObjects can
+        only change what the values at their keys are; they cannot add, or delete fields. There's two functions to change values at a key, set() and at().
+        set() is used when you want to change value at a key, but to a different type. at() is used when you simply want to change the value to another of the same type.
     </p>
     <pre><code>
         /*Scruffles Before
