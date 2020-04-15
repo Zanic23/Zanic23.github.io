@@ -21,7 +21,7 @@
     <pre><code>
 jbon::File file("test.jbon")
 //or 
-jbon::File file();
+jbon::File file;
 file.load("test.jbon");
     </code></pre>
     <p>
@@ -50,7 +50,7 @@ auto collection = jbon::parse("Coord{x, y} Coord(4,2)");
     <pre><code>
 jbon::File file;
 file.load("data.jbon");
-auto& collection = file.getClassess();
+auto& collection = file.getClasses();
 //change the data refrenced by the collection
 file.save();
     </code></pre>
