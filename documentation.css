@@ -35,6 +35,9 @@
     cursor: pointer;
     color: white;
 }
+#FunctionsHeader {
+    cursor: pointer;
+}
 #RefrenceList h3{
     margin: 0px;
     margin-bottom: 4px;
