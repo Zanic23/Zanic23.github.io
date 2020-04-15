@@ -14,8 +14,8 @@
     <h2>Loading JBON</h2>
     <h3 id = "OpeningAFile">Opening a File</h3>
     <p>
-        In JBON there are two ways to parse text. You can either open up a file with JBON text, or use the parser to parse a string. To start, lets begin talking about 
-        opening a file. All jbon files are proceeded with the .jbon file extension. To load a file, either call a jbon file constructor with the filepath, or load 
+        In JBON there are two ways to parse text. You can either open up a file with JBON text, or use the parser to parse a string. To start, let's begin talking about 
+        opening a file. All JBON files are proceeded with the .jbon file extension. To load a file, either call a JBON file constructor with the filepath, or load 
         the data at a later time.
     </p>
     <pre><code>
@@ -25,10 +25,10 @@ jbon::File file();
 file.load("test.jbon");
     </code></pre>
     <p>
-        As you can see, everything in the jbon library is under the jbon namespace, so for convinince sake, using the namespace would not be a bad idea. JBON files 
-        can also include jbon files, which is different than loading them. Think about it like c++ header that you're including. If you find yourself often copying 
-        the same class definition, you can define the class in a jbon file once and include it in any other file loading. This was added to reduce redundancy, so 
-        don't hesitate to use it. Also, keep in mind, including a jbon file will only look at the classes and not load the data.
+        As you can see, everything in the JBON library is under the jbon namespace, so for convenience sake, using the namespace would not be a bad idea. JBON files 
+        can also include JBON files, which is different than loading them. Think about it like a C++ header that you're including. If you find yourself often copying 
+        the same class definition, you can define the class in a JBON file once and include it in any other file loading. This was added to reduce redundancy, so 
+        don't hesitate to use it. Also, keep in mind, including a JBON file will only look at the classes and not load the data.
     </p>
     <pre><code>
 jbon::File file;
