@@ -17,27 +17,25 @@
     <hr>
     <div class = "Method">
         <h6>viod push_back(const GenericClass& genericClass);</h6>
-        <p>Description...</p>
+        <p>This method will push back a generic class into the class collection.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>GenericClass& operator[](std::string name);</h6>
+        <p>This will return a refrence to a generic class with the specified name.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>int size();</h6>
+        <p>Will return the number of GenericClasses contained in the ClassCollection.</p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>std::string serialize() const;</h6>
+        <p>This will return a serialized version of the ClassCollection. This serialized text includes the classes, as well as 
+            all of their objects.
+        </p>
     </div>
     <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
-    </div>
-    <div class = "Method">
-        <h6>Prototype()</h6>
-        <p>Description...</p>
+        <h6>friend std::ostream& operator &lt&lt (std::ostream& stream, ClassCollection& collection);</h6>
+        <p>This allows the ClassContainer to be passed into standard streams.</p>
     </div>
 </body>
 </html>
