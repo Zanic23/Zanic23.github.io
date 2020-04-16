@@ -9,8 +9,13 @@
 .row{
     display: flex;
     flex-direction: row;
-    
+    justify-content: flex-start;
     margin-top: 20px;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 #DownloadList > h2{
     margin-top: 10px;
@@ -20,18 +25,25 @@
 hr{
     width: 365px;
 }
-#DownloadList  p 
+#DownloadList p 
 {
     font-size: 24px;
     margin:10px;
+    padding: 6px;
 }
-#DownloadList  a 
+#DownloadList > p > a
+{
+    color: white;
+    font-size: 24px;
+}
+#DownloadList .row a
 {
     align-self: center;
     color: white;
     cursor: pointer;
     font-size: 18px;
     
+    margin: 10px;
     background-color: #495e5f;
     padding: 10px;
     border-radius: 10px;

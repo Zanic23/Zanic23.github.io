@@ -20,10 +20,32 @@
         <div id = "DownloadList">
             <h2>Download JBON</h2>
             <hr>
-            <div class = "row"><p>JBON 2.0 x86 release</p>&emsp;<a href = "downloads/jbonx86-r.zip" download>Download 4.2MB</a></div>
-            <div class = "row"><p>JBON 2.0 x86 debug</p>&emsp;<a href = "downloads/jbonx86-d.zip" download>Download 1.8MB</a></div>
-            <div class = "row"><p>JBON 2.0 x64 release</p>&emsp;<a href = "downloads/jbonx64-r.zip" download>Download 4.1MB</a></div>
-            <div class = "row"><p>JBON 2.0 x64 debug</p>&emsp;<a href = "downloads/jbonx64-d.zip" download>Download 1.8MB</a></div>
+            <div class = "row"> 
+                <div class = "column">
+                    <p>JBON 2.0 x86 release</p>
+                    <p>JBON 2.0 x86 debug</p>
+                    <p>JBON 2.0 x64 release</p>
+                    <p>JBON 2.0 x64 debug</p>
+                </div>
+                <div class = "column">
+                    <a href = "downloads/jbonx86-r.zip" download>Download 4.2MB</a>
+                    <a href = "downloads/jbonx86-d.zip" download>Download 1.8MB</a>
+                    <a href = "downloads/jbonx64-r.zip" download>Download 4.1MB</a>
+                    <a href = "downloads/jbonx64-d.zip" download>Download 1.8MB</a>
+                </div>
+            </div>
+            
+            <p>
+                These are the static libraries made with MSVC, so if you're using another compiler, its likely you'll need
+                to compile the JBON <a href = "https://github.com/Zanic23/JBON-2.0" target="_blank">source files</a> on your 
+                own. To use the downloads above in visual studio, begin by extracting them somewhere on your computer. 
+                In your c++ project, go to your project's properties and under the C/C++ go the the general settings, and click 
+                "Additional Include Directories". There, search for where you saved the extracted JBON file and the directory 
+                to the 'include' folder you just downloaded. Next go the 'Linker' settings right below C/C++ and click its general
+                settings. Under 'Additional Library Directories' and add the filepath to the 'lib' folder from the JBON file.
+                Finally, still under the linker settings, go to 'Input' and click 'Additional Dependencies'. From There
+                simply type 'JBON.lib'. To use JBON in your project simply do #include "JBON.h".
+            </p>
         </div>
     </div>
 </body>
