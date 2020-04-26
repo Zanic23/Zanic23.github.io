@@ -99,6 +99,16 @@ Button:MainMenu( {x = 3, y = 10}, { r = 32, g = 34, b = 22}, "Play")
                 </pre>
             </li>
         </ul>
+        <!--add pictures for jbon statistic-->
+        <p class = "Text">JBON, while feature rich, is fully capable of parsing and loading your files very quickly. Listed are the 
+            parsing and saving times for serialized c++ class, called Pos, containing two variables, x and y. If you look closely
+            at the saving times, you'll see a jump in the times required to save. This is simply due to the the caching limit on your computer, but overall
+            its times are still fast. Also keep in mind, the y-axis is measured in microseconds. To convert microseconds to milliseconds, divide by a thousand.  
+        </p>
+        <div id = "statpics">
+            <img src = "stats/jbon_loading_times_serialized.png">
+            <img src = "stats/jbon_saving_times_serialized.png">
+        </div>
     </div>
 </body>
 </html>
