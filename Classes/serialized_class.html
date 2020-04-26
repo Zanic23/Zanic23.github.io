@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel = "stylesheet" href = "classes.css">
+</head>
+<body>
+    <h2>SerializedClass&ltT&gt</h2>
+    <hr>
+    <p>A SerializedClass provides an interface between serialized C++ class instances parsed from a file.
+        The passed type to the template, signifies what type of class instances it will hold.
+    </p>
+    <h4>Constructors</h4>
+    <hr>
+    <div class = "Method">
+        <h6>SerializedClass();</h6>
+        <p>Default Constructor</p>
+    </div>
+    <div class = "Method">
+        <h6>SerializedClass(std::string schema);</h6>
+        <p>This will parse the class schema and create the appropriate SerializedClass.</p>
+    </div>
+    <h4>Methods</h4>
+    <hr>
+    <div class = "Method">
+        <h6>ObjectCollection& getObjects();</h6>
+        <p>
+            This will return a refrence to all constructed objects associated with this class. Any changes to the refrence will
+            be remembered by the class, so remember to save the return value in a refrence. This is the only way for a user 
+            to get an ObjectCollection in current JBON.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>T& operator[](std::string const& key);</h6>
+        <p>This will return an instance of type T, with the specified name.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>std::string name() const;</h6>
+        <p>This will return the name of the class.</p>
+    </div>
+    <div class = "Method">
+        <h6>friend std::ostream& operator &lt&lt (std::ostream& stream, SerializedClass& serializedClass);</h6>
+        <p>This allows the SerializedClass to be passed to a standard stream.</p>
+    </div>
+
+    <div class = "Method">
+        <h6>
+            std::vector&ltT&gt& getObjects();
+        </h6>
+        <p>
+            returns a vector of instances of class T, populated from the JBON file. Any changes to these objects
+            will be reflected if the class is saved.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>
+            void push_back(T const& value);
+        </h6>
+        <p>
+            Will push back an Object of type T.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>void makeAndAddObject(std::string_view parsed);</h6>
+        <p>
+            Pass a string view of the object you'd like parsed (without any spaces), and it will create and add an instance
+            of T to its internal vector.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>std::string serialize();</h6>
+        <p>
+            This will return the class, along with its objects transformed into text.
+        </p>
+    </div>
+    <div class = "Method">
+        <h6>std::string serializeBody();</h6>
+        <p>
+            This will return only the classes's objects transformed into text.
+        </p>
+    </div>
+</body>
+</html>
